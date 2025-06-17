@@ -12,7 +12,9 @@ const Acceuil = () => {
     const data = await res.json();
 
     const apiMovies = data.results || [];
-    const customMovies = JSON.parse(localStorage.getItem("customFilms") || "[]");
+    const customMovies = JSON.parse(
+      localStorage.getItem("customFilms") || "[]"
+    );
 
     setMovieList([...customMovies, ...apiMovies]);
   };
@@ -33,7 +35,11 @@ const Acceuil = () => {
               <h4 className="border border-red-700">{movie.title}</h4>
               <img
                 className="w-[200px]"
-                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                src={
+                  movie.poster_path?.startsWith("data:image")
+                    ? movie.poster_path
+                    : `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                }
                 alt={movie.title}
               />
             </Link>

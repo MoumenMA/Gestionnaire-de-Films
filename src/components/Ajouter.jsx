@@ -2,6 +2,8 @@ import { useState } from "react";
 
 const Ajouter = () => {
   const [title, setTitle] = useState("");
+  const [type, setType] = useState("");
+  const [rating, setRating] = useState(0);
   const [description, setDescription] = useState("");
   const [dateSortie, setDateSortie] = useState("");
   const [imageBase64, setImageBase64] = useState(null);
@@ -28,6 +30,8 @@ const Ajouter = () => {
     const newFilm = {
       id: Date.now(),
       title,
+      type,
+      rating,
       description,
       dateSortie,
       poster_path: imageBase64,
@@ -42,6 +46,8 @@ const Ajouter = () => {
 
     alert("Film Added succesfully");
     setTitle("");
+    setType("");
+    setRating();
     setDescription("");
     setDateSortie("");
     setImageBase64(null);
@@ -79,6 +85,24 @@ const Ajouter = () => {
             onChange={(e) => setDescription(e.target.value)}
             className="w-full border p-2 rounded"
             rows={4}
+            required
+          />
+        </div>
+        <div>
+          <label>Type </label>
+          <input
+            type="text"
+            value={type}
+            onChange={(e) => setType(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Rating </label>
+          <input
+            type="text"
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
             required
           />
         </div>

@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Acceuil from "./components/Acceuil";
+import Acceuil from "./page/Acceuil";
 import Ajouter from "./components/Ajouter";
 import NavBar from "./components/NavBar";
-import Recherche from "./components/Recherche";
+import Recherche from "./page/Recherche";
 import { MovieDetails } from "./components/MovieDetails";
-import { Nopage } from "./components/Nopage";
+import { Nopage } from "./page/Nopage";
 
 const App = () => {
   return (

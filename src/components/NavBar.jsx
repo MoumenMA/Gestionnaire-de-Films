@@ -1,20 +1,26 @@
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+  const navItems = [
+    { path: "/", label: "Acceuil" },
+    { path: "/recherche", label: "Recherche" },
+    { path: "/ajouter", label: "Ajouter Films" },
+  ];
   return (
-    <nav className="border-2 border-blue-600 flex items-center justify-between  mx-64 my-9">
-      <Link to="/" className="border-2 border-red-600">
-        {" "}
-        Acceuil
-      </Link>
-      <Link to="/recherche" className="border-2 border-red-600">
-        {" "}
-        Recherche
-      </Link>
-      <Link to="/ajouter" className="border-2 border-red-600">
-        {" "}
-        Ajouter Films
-      </Link>
+    <nav className="border-2 border-blue-600   mx-64 my-9">
+      <div>
+        {navItems.map(({ path, label }) => (
+          <Link
+            className=" px-4 py-2 rounded-xl space-x-2 font-medium transition-all duration-300 hover:scale-105"
+            key={path}
+            to={path}
+          >
+            {" "}
+            <span>{label}</span>
+          </Link>
+        ))}
+      </div>
+    
     </nav>
   );
 };
