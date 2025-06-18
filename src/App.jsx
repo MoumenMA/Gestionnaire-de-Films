@@ -9,7 +9,7 @@ import { Nopage } from "./page/Nopage";
 
 const App = () => {
   return (
-    <div className="">
+    <div className="bg-black min-h-screen">
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -23,4 +23,5 @@ const App = () => {
     </div>
   );
 };
+
 export default App;
